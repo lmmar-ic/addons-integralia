@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_albaran_ute, Albaran UTE,model_albaran_ute,sales_team.group_sale_salesman_all_leads,1,1,1,1
+
