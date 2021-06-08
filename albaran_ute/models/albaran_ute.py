@@ -11,3 +11,13 @@ class AlbaranUte(models.Model):
     secuencia_albaran = fields.Char(string='Secuencia')
     orden_trabajo = fields.Char(string='Orden de trabajo')
     nombre_reparacion = fields.Text(string='Nombre')
+    fecha_notificacion = fields.Date(string='Fecha notificación')
+
+
+    def get_hours(self):
+        for record in self:
+            total = 0
+            for li in record.fees_lines:
+                total += li.product_uom_qty
+            record.horas
+    horas = fields.Float(string='Horas', compute='get_hours', store=False)

@@ -6,19 +6,34 @@
         <field name="model">repair.order</field>
         <field name="inherit_id" ref="repair.view_repair_order_form" />
         <field name="arch" type="xml">
-             <xpath expr='//form/sheet/notebook' position="inside">
+            <xpath expr='//form/sheet/notebook' position="inside">
                 <page string="Albaran UTE" name="UTE">
+                    <group>
                         <group>
-                            <group>
-                                <field name="fecha_albaran"/>
-                                <field name="secuencia_albaran"/>
-                            </group>
-                            <group>
-                                <field name="orden_trabajo"/>
-                                <field name="nombre_reparacion"/>
-                            </group>
+                            <field name="fecha_albaran"/>
+                            <field name="secuencia_albaran"/>
+                            <field name="fecha_notificacion"/>
                         </group>
-                    </page>
+                        <group>
+                            <field name="orden_trabajo"/>
+                            <field name="nombre_reparacion"/>
+                            <field name="horas"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="albaran_ute_repair_tree" model="ir.ui.view">
+        <field name="name">albaran.ute.repair.tree</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <xpath expr='//field[@name="location_id"]' position="after">
+                <field name="fecha_notificacion" optional="hide"/>
+                <field name="horas" optional="hide"/>
+                <field name="tag_ids" widget='may2may_tags' options="{'color_field':'color'}" optional="hide"/>
             </xpath>
         </field>
     </record>
