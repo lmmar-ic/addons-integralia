@@ -33,7 +33,7 @@
             <xpath expr='//field[@name="location_id"]' position="after">
                 <field name="fecha_notificacion" optional="hide"/>
                 <field name="horas" optional="hide"/>
-                <field name="tag_ids" widget='may2may_tags' options="{'color_field':'color'}" optional="hide"/>
+                <field name="tag_ids" widget='many2many_tags' options="{'color_field':'color'}" optional="hide"/>
             </xpath>
         </field>
     </record>
