@@ -25,4 +25,4 @@ class AlbaranUte(models.Model):
     def get_ute_sequence(self):
         for record in self:
             if not record.secuencia_albaran:
-                record.sequencia_albaran = self.env['ir.sequence'].next_by_code('albaran.ute')
+                record.secuencia_albaran = self.env['ir.sequence'].next_by_code('albaran.ute')
