@@ -12,7 +12,7 @@ class AlbaranUte(models.Model):
     orden_trabajo = fields.Char(string='Orden de trabajo')
     nombre_reparacion = fields.Text(string='Descripción')
     fecha_notificacion = fields.Date(string='Fecha notificación')
-    cargo_albaran = fields.Char('Albarán carga')
+    cargo_albaran = fields.Char('Cargo')
 
     def get_hours(self):
         for record in self:
