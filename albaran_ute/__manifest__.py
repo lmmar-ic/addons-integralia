@@ -8,7 +8,7 @@
     'author': 'Serincloud',
     'depends': ['repair',
                 'purchase_so',
-                'sales',],
+                'sale_management',],
     'data': [
         #'security/ir.model.access.csv',
         'views/templates.xml',
