@@ -6,7 +6,9 @@
 
 """,
     'author': 'Serincloud',
-    'depends': ['repair', ],
+    'depends': ['repair',
+                'purchase_so',
+                'sales',],
     'data': [
         #'security/ir.model.access.csv',
         'views/templates.xml',
