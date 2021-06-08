@@ -1,0 +1,15 @@
+<odoo>
+
+    <data>
+        <record id="ute_e_sequence" model="ir.sequence">
+            <field name="name">albaran.ute</field>
+            <field name="implementation">no_gap</field>
+            <field name="code">albaran.ute</field>
+            <field name="prefix">E</field>
+            <field name="padding">4</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+
+
+</odoo>

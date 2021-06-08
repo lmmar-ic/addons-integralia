@@ -11,7 +11,7 @@
         #'security/ir.model.access.csv',
         'views/templates.xml',
         'views/albaran_ute_report.xml',
-        #'data/mail_template_data.xml',
+        'data/sequence.xml',
         'views/views.xml',
         #'views/views_menu.xml',
     ],
