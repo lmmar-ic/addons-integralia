@@ -6,7 +6,7 @@
 
 """,
     'author': 'Serincloud',
-    'depends': ['repair',
+    'depends': ['purchase_repair',
                 'purchase_so',
                 'sale_management',],
     'data': [
