@@ -10,17 +10,19 @@
                 <page string="Albaran UTE" name="UTE">
                     <group>
                         <group>
-                            <button type="object" name="get_ute_sequence" string="Asignar secuencia" class="btn-primary"/>
-                            <field name="fecha_albaran"/>
-                            <field name="secuencia_albaran"/>
-                            <field name="fecha_notificacion"/>
-                            <field name="cargo_albaran"/>
-                        </group>
-                        <group>
                             <field name="orden_trabajo"/>
-                            <field name="nombre_reparacion"/>
+                            <field name="cargo_albaran"/>
                             <field name="horas"/>
                         </group>
+                        <group>
+                            <field name="fecha_notificacion"/>
+                            <field name="fecha_albaran"/>
+                            <field name="secuencia_albaran" attrs="{'invisible':[('secuencia_albaran','=',False)]}"/>
+                            <button type="object" name="get_ute_sequence" string="Asignar secuencia" class="btn-primary" attrs="{'invisible':[('secuencia_albaran','!=',False)]}"/>
+                        </group>
+                    </group>
+                    <group>
+                            <field name="nombre_reparacion" widget="html"/>
                     </group>
                 </page>
             </xpath>
