@@ -3,7 +3,7 @@
 <odoo>
     <data>
 
-        <template id="external_document_layout">
+        <template id="external_ute_layout">
             <t t-name="albaran_ute.external_document_layout">
                 <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                     <t t-call="web.address_layout"/>
@@ -11,17 +11,17 @@
                 </div>
 
                 <div class="footer o_standard_footer">
-                    <div class="text-center" style="border-top: 1px solid black;">
-                        <div t-if="report_type == 'pdf'" class="text-muted">
+                    <div class="text-left" style="border-top: 1px solid black;">
+                        <!--<div t-if="report_type == 'pdf'" class="text-muted">
                             Page: <span class="page"/> / <span class="topage"/>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </t>
         </template>
 
         <template id="report_albaran_ute_document">
-            <t t-call="albaran_ute.external_document_layout">
+            <t t-call="albaran_ute.external_ute_layout">
                 <t t-set="o" t-value="o.with_context(lang=lang)"/>
                 <div class="page">
 
