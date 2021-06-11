@@ -11,11 +11,11 @@
                 </div>
 
                 <div class="footer o_standard_footer">
-                    <div class="text-left" style="border-top: 1px solid black;">
-                        <!--<div t-if="report_type == 'pdf'" class="text-muted">
+                    <!--<div class="text-left" style="border-top: 1px solid black;">
+                        <div t-if="report_type == 'pdf'" class="text-muted">
                             Page: <span class="page"/> / <span class="topage"/>
-                        </div>-->
-                    </div>
+                        </div>
+                    </div>-->
                 </div>
             </t>
         </template>

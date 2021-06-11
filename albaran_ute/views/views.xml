@@ -22,7 +22,7 @@
                         </group>
                     </group>
                     <group>
-                            <field name="ute_descripcion" widget="html"/>
+                            <field name="ute_descripcion"/>
                     </group>
                 </page>
             </xpath>
