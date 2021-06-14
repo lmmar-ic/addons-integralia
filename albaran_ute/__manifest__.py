@@ -6,14 +6,12 @@
 
 """,
     'author': 'Serincloud',
-    'depends': ['purchase_repair',
-                'purchase_so',
-                'sale_management',],
+    'depends': ['repair', ],
     'data': [
         #'security/ir.model.access.csv',
         'views/templates.xml',
         'views/albaran_ute_report.xml',
-        'data/sequence.xml',
+        'data/paper_ute.xml',
         'views/views.xml',
         #'views/views_menu.xml',
     ],

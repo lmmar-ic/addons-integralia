@@ -3,7 +3,7 @@
 <odoo>
     <data>
 
-        <template id="external_ute_layout">
+        <template id="external_document_layout">
             <t t-name="albaran_ute.external_document_layout">
                 <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
                     <t t-call="web.address_layout"/>
@@ -11,32 +11,88 @@
                 </div>
 
                 <div class="footer o_standard_footer">
-                    <!--<div class="text-left" style="border-top: 1px solid black;">
+                    <div class="text-center" style="border-top: 1px solid black;">
                         <div t-if="report_type == 'pdf'" class="text-muted">
                             Page: <span class="page"/> / <span class="topage"/>
                         </div>
-                    </div>-->
+                    </div>
                 </div>
             </t>
         </template>
 
         <template id="report_albaran_ute_document">
-            <t t-call="albaran_ute.external_ute_layout">
+            <t t-call="albaran_ute.external_document_layout">
                 <t t-set="o" t-value="o.with_context(lang=lang)"/>
                 <div class="page">
+                    <t t-foreach="o.x_repair_id" t-as="line">
+                        <div id="date_ref_charge" style="margin-left: 40px;">
+                            <br/>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td width="90px"><strong>Fecha:</strong></td><td style="text-align: left;"><span t-field="line.ute_fecha_albaran"/></td></tr>
+                                    <tr>
+                                        <td width="90px"><strong>N.REF:</strong></td><td style="text-align: left;"><span t-field="line.ute_secuencia"/></td></tr>
+                                    <tr>
+                                        <td width="90px"><strong>S.REF/OT:</strong></td><td style="text-align: left;"><span t-field="line.ute_ot"/></td></tr>
+                                    <tr>
+                                        <td width="90px"><strong>CARGO:</strong></td><td style="text-align: left;"><span t-field="line.ute_cargo"/></td></tr>
+                                </tbody>
+                            </table>
 
-
+                        </div>
+                        <br/><br/>
+                        <div id="head_table" style="margin-left: 40px;font-size:10pt;">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td width="150px" style="text-align: left">Página <span class="page"/>1 de 1<span class="topage"/></td><td width="400px" style="text-align: center;">ALBARAN Nº <span t-field="line.ute_secuencia"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br/>
+                        <p style="margin-left:30px;margin-right:380px;text-align: justify;font-size:10pt;"><span t-field="line.ute_descripcion"/></p>
+                        <br/>
+                        <p style="margin-left:30px;font-size:10pt;">RESUMEN:</p>
+                        <div id="head_table" style="margin-left: 30px;margin-right: 0px;font-size:10pt;">
+                            <table>
+                                <tbody>
+                                    <t t-foreach="o.invoice_line_ids" t-as="linefac">
+                                        <tr>
+                                            <td width="470px"><span t-esc="linefac.name"/></td>
+                                            <td width="65px" style="text-align: right;"><span t-field="linefac.quantity"/></td>
+                                            <td width="95px" style="text-align: right;"><span t-field="linefac.price_unit"/></td>
+                                            <!--<td width="70px" style="text-align: right;"><span t-esc="str(linefac.discount).replace('0.0','')"/></td>-->
+                                            <td width="70px" style="text-align: right;"><span t-field="linefac.discount"/></td>
+                                            <td width="90px" style="text-align: right;"><span t-field="linefac.price_subtotal"/></td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="text-align: right;position: absolute;top: 995px;right:30px">
+                        <p><span t-field="o.amount_untaxed"/></p>
+                    </div>
+                    <div style="text-align: right;position: absolute;top: 1020px;right:30px">
+                        <t t-set="tax" t-value="o.amount_total - o.amount_untaxed"/>
+                        <p><span t-esc="tax" t-options='{"widget": "float", "precision": 2}'/> €</p>
+                    </div>
+                    <div style="text-align: right;position: absolute;top: 1045px;right:30px">
+                        <p><span t-field="o.amount_total"/></p>
+                    </div>
+                    </t>
                 </div>
             </t>
-        </template>
+    </template>
 
-        <template id="albaran_ute_report_document">
-            <t t-call="web.html_container">
-                <t t-foreach="docs" t-as="o">
-                    <t t-call="albaran_ute.report_albaran_ute_document" t-lang="lang"/>
-                </t>
+    <template id="albaran_ute_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="albaran_ute.report_albaran_ute_document" t-lang="lang"/>
             </t>
-        </template>
+        </t>
+    </template>
 
-    </data>
-</odoo>
+</data>
+        </odoo>
