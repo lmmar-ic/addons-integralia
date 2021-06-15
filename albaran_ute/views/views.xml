@@ -10,15 +10,19 @@
                 <page string="Albaran UTE" name="UTE">
                     <group>
                         <group>
-                            <field name="fecha_albaran"/>
-                            <field name="secuencia_albaran"/>
-                            <field name="fecha_notificacion"/>
-                        </group>
-                        <group>
-                            <field name="orden_trabajo"/>
-                            <field name="nombre_reparacion"/>
+                            <field name="ute_ot"/>
+                            <field name="ute_cargo"/>
                             <field name="horas"/>
                         </group>
+                        <group>
+                            <field name="ute_fecha_notificacion"/>
+                            <field name="ute_fecha_albaran"/>
+                            <field name="ute_secuencia" attrs="{'invisible':[('ute_secuencia','=',False)]}"/>
+                            <button type="object" name="get_ute_sequence" string="Asignar código" class="btn-primary" attrs="{'invisible':[('ute_secuencia','!=',False)]}"/>
+                        </group>
+                    </group>
+                    <group>
+                            <field name="ute_descripcion"/>
                     </group>
                 </page>
             </xpath>
@@ -31,12 +35,11 @@
         <field name="inherit_id" ref="repair.view_repair_order_tree" />
         <field name="arch" type="xml">
             <xpath expr='//field[@name="location_id"]' position="after">
-                <field name="fecha_notificacion" optional="hide"/>
+                <field name="ute_fecha_notificacion" optional="hide"/>
                 <field name="horas" optional="hide"/>
-                <field name="tag_ids" widget='may2may_tags' options="{'color_field':'color'}" optional="hide"/>
+                <field name="tag_ids" widget='many2many_tags' options="{'color_field':'color'}" optional="hide"/>
             </xpath>
         </field>
     </record>
-
 
 </odoo>
