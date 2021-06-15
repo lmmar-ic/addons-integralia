@@ -11,7 +11,7 @@
             <field name="attachment">((str(object.name) or '')+'.pdf')</field>
             <field name="binding_model_id" ref="account.model_account_move"/>
             <field name="binding_type">report</field>
-            <field file="static/alb_ute.pdf" name="pdf_watermark" type="base64" />
+            <field file="albaran_ute/static/alb_ute.pdf" name="pdf_watermark" type="base64" />
         </record>
 
     </data>
