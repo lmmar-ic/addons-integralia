@@ -24,7 +24,7 @@
             <t t-call="albaran_ute.external_document_layout">
                 <t t-set="o" t-value="o.with_context(lang=lang)"/>
                 <div class="page">
-                    <t t-foreach="o.x_repair_id" t-as="line">
+                    <t t-foreach="o.repair_id" t-as="line">
                         <div id="date_ref_charge" style="margin-left: 40px;">
                             <br/>
                             <table>
