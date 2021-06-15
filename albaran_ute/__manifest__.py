@@ -12,6 +12,7 @@
         'views/templates.xml',
         'views/albaran_ute_report.xml',
         'data/paper_ute.xml',
+        'data/sequence.xml',
         'views/views.xml',
         #'views/views_menu.xml',
     ],
