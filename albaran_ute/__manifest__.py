@@ -6,7 +6,7 @@
 
 """,
     'author': 'Serincloud',
-    'depends': ['repair','purchase_repair', ],
+    'depends': ['repair','purchase_repair', 'report_qweb_pdf_watermark' ],
     'data': [
         #'security/ir.model.access.csv',
         'views/templates.xml',
