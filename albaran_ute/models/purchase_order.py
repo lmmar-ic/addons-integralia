@@ -16,13 +16,13 @@ class PurchaseOrder(models.Model):
             elif (record.repair_id.id) and not (record.sale_id.id):
                 try:
                     end = record.repair_id.name.index(' ', 0)
-                    job = record.repair_id.name[1:end]
+                    job = record.repair_id.name[0:end]
                 except:
                     job = record.repair_id.name
             elif (record.repair_id.id) and (record.sale_id.id):
                 try:
                     end = record.repair_id.name.index(' ', 0)
-                    job = record.sale_id.name + " | " + record.repair_id.name[1:end]
+                    job = record.sale_id.name + " | " + record.repair_id.name[0:end]
                 except:
                     job = record.sale_id.name + " | " + record.repair_id.name
             record.report_job = job
