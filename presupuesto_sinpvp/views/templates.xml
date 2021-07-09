@@ -7,9 +7,10 @@
         model="sale.order"
         string="Presupuesto sinpvp"
         report_type="qweb-pdf"
-        name="sale.report_sale_order_sinpvp"
+        name="presupuesto_sinpvp.report_sale_order_sinpvp"
+        file="presupuesto_sinpvp.report_sale_order_sinpvp"
         print_report_name="(object.state in ('draft', 'sent') and 'Presupuesto - %s' % (object.name)) or 'Pedido - %s' % (object.name)"
-        paperformat="A4-integralia"
+        <!--paperformat="A4-integralia"-->
         menu="True"/>
 
 <template id="sale.report_sale_order_sinpvp">
