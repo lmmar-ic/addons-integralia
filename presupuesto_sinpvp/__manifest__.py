@@ -9,7 +9,7 @@
     'depends': ['sale', 'report_qweb_pdf_watermark' ],
     'data': [
         'views/templates.xml',
-        'views/sale_order_sinpvp_report.xml',
+        #'views/sale_order_sinpvp_report.xml',
     ],
     'installable': True,
 }
