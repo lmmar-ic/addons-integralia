@@ -29,11 +29,11 @@
         </t>
         <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
             <t t-set="information_block">
-                <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>
-                <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing Address:</strong>
+                <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Dirección de facturación y envío:</strong>
+                <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Dirección de facturación:</strong>
                 <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
                 <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
-                    <strong>Shipping Address:</strong>
+                    <strong>Dirección de envío:</strong>
                     <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
                 </t>
             </t>
@@ -43,34 +43,34 @@
 
             <h2 class="mt16">
                 <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-                    <span t-if="doc.state not in ['draft','sent']">Order # </span>
-                    <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+                    <span t-if="doc.state not in ['draft','sent']">Presupuesto # </span>
+                    <span t-if="doc.state in ['draft','sent']">Cotización # </span>
                 </t>
                 <t t-if="env.context.get('proforma', False) or is_pro_forma">
-                    <span>Pro-Forma Invoice # </span>
+                    <span>Factura Pro-Forma # </span>
                 </t>
                 <span t-field="doc.name"/>
             </h2>
 
             <div class="row mt32 mb32" id="informations">
                 <div t-if="doc.client_order_ref" class="col-auto col-3 mw-100 mb-2">
-                    <strong>Your Reference:</strong>
+                    <strong>Tu referencia:</strong>
                     <p class="m-0" t-field="doc.client_order_ref"/>
                 </div>
                 <div t-if="doc.date_order and doc.state not in ['draft','sent']" class="col-auto col-3 mw-100 mb-2">
-                    <strong>Order Date:</strong>
+                    <strong>Fecha de presupuesto:</strong>
                     <p class="m-0" t-field="doc.date_order"/>
                 </div>
                 <div t-if="doc.date_order and doc.state in ['draft','sent']" class="col-auto col-3 mw-100 mb-2">
-                    <strong>Quotation Date:</strong>
+                    <strong>Fecha de cotización:</strong>
                     <p class="m-0" t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
                 </div>
                 <div t-if="doc.validity_date and doc.state in ['draft', 'sent']" class="col-auto col-3 mw-100 mb-2" name="expiration_date">
-                    <strong>Expiration:</strong>
+                    <strong>Vencimiento:</strong>
                     <p class="m-0" t-field="doc.validity_date"/>
                 </div>
                 <div t-if="doc.user_id.name" class="col-auto col-3 mw-100 mb-2">
-                    <strong>Salesperson:</strong>
+                    <strong>Comercial:</strong>
                     <p class="m-0" t-field="doc.user_id"/>
                 </div>
             </div>
@@ -80,8 +80,8 @@
                 <!-- In case we want to repeat the header, remove "display: table-row-group" -->
                 <thead style="display: table-row-group">
                     <tr>
-                        <th name="th_description" class="text-left">Description</th>
-                        <th name="th_quantity" class="text-right">Quantity</th>
+                        <th name="th_description" class="text-left">Descripción</th>
+                        <th name="th_quantity" class="text-right">Cantidad</th>
                     </tr>
                 </thead>
                 <tbody class="sale_tbody">
@@ -97,6 +97,16 @@
                                     <span t-field="line.product_uom_qty"/>
                                     <span t-field="line.product_uom"/>
                                 </td>
+                                <t t-if="line.udo_line_ids.ids">
+                                    <t t-foreach="line.udo_line_ids" t-as="uoms">
+                                        <tr>
+                                        <td name="td_name"><span t-field="uoms.product_id"/></td>
+                                        <td name="td_quantity" class="text-right">
+                                            <span t-field="uoms.product_uom_qty"/>
+                                        </td>
+                                        </tr>
+                                    </t>
+                                </t>
                             </t>
                             <t t-if="line.display_type == 'line_section'">
                                 <td name="td_section_line" colspan="99">
@@ -118,7 +128,7 @@
 
             <div t-if="doc.signature" class="mt32 ml64 mr4" name="signature">
                 <div class="offset-8">
-                    <strong>Signature</strong>
+                    <strong>Firma</strong>
                 </div>
                 <div class="offset-8">
                     <img t-att-src="image_data_uri(doc.signature)" style="max-height: 4cm; max-width: 8cm;"/>
