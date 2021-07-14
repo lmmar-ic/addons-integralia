@@ -5,7 +5,6 @@
             <field name="name">Presupuesto Udo sin Preciosp</field>
             <field name="model">sale.order</field>
             <field name="report_type">qweb-pdf</field>
-            <field name="paperformat_id">2</field>
             <field name="report_name">sale.sale_udo_without_prices</field>
             <field name="print_report_name">(object.state in ('draft', 'sent') and 'Presupuesto - %s' % (object.name)) or 'Pedido - %s' % (object.name)</field>
             <field name="binding_model_id" ref="sale.order"/>
