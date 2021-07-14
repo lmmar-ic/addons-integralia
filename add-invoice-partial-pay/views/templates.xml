@@ -9,7 +9,7 @@
                 <t t-if="not book.is_available">
                     <b>(Not Available)</b>
                 </t>
-		    </xpath>
+	    </xpath>
         </template>
 
     </data>
