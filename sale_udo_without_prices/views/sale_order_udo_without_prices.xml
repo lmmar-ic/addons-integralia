@@ -12,7 +12,7 @@
             <field name="binding_model_id" ref="sale.order"/>
             <field name="binding_type">report</field>
             <field name="menu">"True"</field>
-            <field file="sale_order_udo_without_prices/static/pl_integralia.pdf" name="pdf_watermark" type="base64" />
+            <!--<field file="sale_order_udo_without_prices/static/pl_integralia.pdf" name="pdf_watermark" type="base64" />-->
         </record>
 
     </data>
