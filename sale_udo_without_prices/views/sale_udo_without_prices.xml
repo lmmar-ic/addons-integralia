@@ -6,8 +6,8 @@
             <field name="model">sale.order</field>
             <field name="report_type">qweb-pdf</field>
             <field name="paperformat_id">4</field>
-            <field name="report_name">sale_udo_without_prices.sale_udo_without_prices_document</field>
-            <field name="report_file">sale_udo_without_prices.sale_udo_without_prices_document</field>
+            <field name="report_name">sale_udo_without_prices.sale_udo_without_prices_report_document</field>
+            <field name="report_file">sale_udo_without_prices.sale_udo_without_prices_report_document</field>
             <field name="print_report_name">(object.state in ('draft', 'sent') and 'Presupuesto - %s' % (object.name)) or 'Pedido - %s' % (object.name)</field>
             <field name="binding_type">report</field>
             <field file="sale_udo_without_prices/static/pl_integralia.pdf" name="pdf_watermark" type="base64" />
