@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="sale_order_udo_without_prices_report" model="ir.actions.report">
+        <record id="sale_udo_without_prices_report" model="ir.actions.report">
             <field name="name">Presupuesto Udo sin Precios</field>
             <field name="model">sale.order</field>
             <field name="report_type">qweb-pdf</field>
@@ -12,7 +12,7 @@
             <field name="binding_model_id" ref="sale.order"/>
             <field name="binding_type">report</field>
             <field name="menu">"True"</field>
-            <field file="sale_order_udo_without_prices/static/pl_integralia.pdf" name="pdf_watermark" type="base64" />
+            <field file="sale_udo_without_prices/static/pl_integralia.pdf" name="pdf_watermark" type="base64" />
         </record>
 
     </data>
