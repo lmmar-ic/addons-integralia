@@ -9,7 +9,6 @@
             <field name="report_name">sale_udo_without_prices.report_sale_order_udo_without_prices</field>
             <field name="report_file">sale_udo_without_prices.report_sale_order_udo_without_prices</field>
             <field name="print_report_name">(object.state in ('draft', 'sent') and 'Presupuesto - %s' % (object.name)) or 'Pedido - %s' % (object.name)</field>
-            <field name="binding_model_id" ref="sale.order"/>
             <field name="binding_type">report</field>
             <field name="menu">"True"</field>
             <field file="sale_udo_without_prices/static/pl_integralia.pdf" name="pdf_watermark" type="base64" />
