@@ -6,8 +6,9 @@
 
 """,
     'author': 'Serincloud',
-    'depends': ['sale', 'report_qweb_pdf_watermark' ],
+    'depends': ['sale', 'sale_udo', 'report_qweb_pdf_watermark' ],
     'data': [
+        'views/sale_order_udo_without_prices.xml',
         'views/templates.xml',
     ],
     'installable': True,
