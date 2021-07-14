@@ -9,7 +9,6 @@
     'depends': ['sale', 'report_qweb_pdf_watermark' ],
     'data': [
         'views/templates.xml',
-        'views/sale_order_udo_without_prices_report.xml',
     ],
     'installable': True,
 }
